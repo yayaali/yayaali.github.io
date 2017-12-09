@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CoffeeCols</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        // build a timer that sequence throw alist and display one image a time
+        var imag = ["images/Gyro.jpg", "images/hummus1.jpg", "images/hummusChk.jpg",
+            "images/hummusKofta.jpg", "images/Kaba.jpg", "images/tryGyro.jpg"
+        ];
+
+        var index=0;
+
+
+        function GetNexImg() {
+            // get a referance to the p elemnt
+
+             document.getElementById("img").src= imag[index];
+             index++;
+            // move the index to the next img
+             if (index > imag.length) {
+             index=0;
+             }
+           
+            
+        }
+        // Function to start img Timer
+
+        function StartImg() {
+            window.setInterval('GetNexImg()', 2000);
+
+        }
+    </script>
+</head>
+
+<body onload="StartImg();">
+
+    <header>
+        <h1>HUMMUS COFFEE</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="selected"><a href="index.htm">Home</a>
+            </li>
+
+        </ul>
+    </nav>
+    <section id="intro">
+        <header>
+            <h2>Welcome to Hummus Coffee
+             Mediterranean Restaurant </h2>
+        </header>
+        <p>At Hummus Coffee Mediterranean Restaurant, our priority has always been quality food at best prices and we are dedicated to maintain quality food and service. Our menu selections reflect the authentic Mediterranean food with a relaxed atmosphere
+            which has made us favorite with the local residents. We hope you'll join us for lunch or dinner and become part of our family</p>
+        <img src="images/mailGyro.jpg" alt="lime" />
+    </section>
+
+    <div id="innercontent">
+        <article class="articlecontent">
+            <header>
+                <h2>This is the title of your article</h2>
+            </header>
+
+            <div>
+            <img id="img" src="images/shishKabab.jpg" alt="This is The Alt" class="center" width="400" height="200" /></div>
+            <br />
+            <p>The Hummus Cafe offers authentic Egyptian-Mediterranean cuisine. "Eating here is like eating in the kitchen of a fussy Egyptian mom", (City Arts, Jonathan Zwickel). Try our homemade Hummus and falafel. Our traditional green soup is light,
+                fresh & original.</p>
+
+        </article>
+
+    </div>
+
+    <aside>
+        <section>
+            <header>
+                <h3>Categories</h3>
+            </header>
+            <ul>
+                <li><a href="#">Plain</a>
+                </li>
+                <li><a href="#">Fancy</a>
+                </li>
+                <li><a href="#">Coffee Makers</a>
+                </li>
+                <li><a href="#">Sides</a>
+                </li>
+                <li><a href="#">Miscellaneous</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Sponsors</h3>
+            </header>
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <br />
+        </section>
+
+        <section>
+            <header>
+                <h3>Connect With Us</h3>
+            </header>
+            <ul>
+                <li><a href="#">Twitter</a>
+                </li>
+                <li><a href="#">Facebook</a>
+                </li>
+                <li><a href="#">Google Buzz</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Recent Articles</h3>
+            </header>
+            <ul>
+                <li><a href="http://seattletimes.com/html/restaurants/2020997878_hummus17xml.html"target= "_blank">Seattle Times</a>
+                </li>
+                <li><a href="http://www.opentable.com/hummus-cafe">Open Table</a>
+                </li>
+            </ul>
+        </section>
+
+    </aside>
+
+   <footer>
+        <section>
+            <h3>Left Column</h3>
+            <p>Left aligned text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Center Column</h3>
+            <p>Center Text here. Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Right Column</h3>
+            <p>&copy; 2014 <a href="#" title="your site name">HummusCafee.com</a> All rights reserved.</p>
+            <p>Center Text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+        </section>
+
+    </footer>
+</body>
+
+</html>

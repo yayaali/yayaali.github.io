@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CoffeeCols</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- provide the google API keys -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"
+    type="text/javascript"> </script>
+   
+    <!-- function to intialize the map and LatLng --> 
+    <script type="text/javascript">
+        window.onload = function(){
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({'address':'8420 Greenwood Ave N  Seattle, WA 98103'},function(result,status){
+			if(status==google.maps.GeocoderStatus.OK){
+				var map = new google.maps.Map(document.getElementById("googleMap"),{
+					'center': result[0].geometry.location,
+					'zoom': 14,
+					'streetViewControl': false,
+				    'mapTypeId': google.maps.MapTypeId.TERRAIN,
+				    'noClear':true,
+				});
+				new google.maps.Marker({
+					'map': map,
+					'position': result[0].geometry.location,
+				});
+			}else{
+				alert('Address not found!');
+			}
+		});
+	}
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>HUMMUS CAFE</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="selected"><a href="index.htm">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="intro">
+        <header>
+            <h2>Welcome to Hummus CAFE
+             Mediterranean Restaurant </h2>
+        </header>
+        <p>At Hummus Coffee Mediterranean Restaurant, our priority has always been quality food at best prices and we are dedicated to maintain quality food and service. Our menu selections reflect the authentic Mediterranean food with a relaxed atmosphere
+            which has made us favorite with the local residents. We hope you'll join us for lunch or dinner and become part of our family</p>
+        <img src="images/mailGyro.jpg" alt="lime" />
+    </section>
+
+    <div id="innercontent">
+        <article class="articlecontent">
+            <header>
+                <h2>This is the house of Egyptian cuasin</h2>
+            </header>
+            <p>Contac Us</p>
+
+            <ul>
+                <li>Address : 8420 Greenwood Ave. N Seattle, WA 98103</li>
+                <li>
+                    Phone: (206) 706-9300
+                </li>
+
+                <li><a href="https://www.google.com/maps/place/Hummus+Cafe/@47.6904849,-122.3552048,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x460e96023c07aec" target= "_blank"> <input type="button" value="Get Direction" /></a><br /></li>
+               
+            </ul>
+            <div id="googleMap" style="width:500px;height:380px;" class=alignright></div>
+
+        </article>
+
+        <article class="articlecontent">
+
+        </article>
+
+    </div>
+
+    <aside>
+        <section>
+            <header>
+                <h3>Categories</h3>
+            </header>
+            <ul>
+                <li><a href="#">Plain</a>
+                </li>
+                <li><a href="#">Fancy</a>
+                </li>
+                <li><a href="#">Coffee Makers</a>
+                </li>
+                <li><a href="#">Sides</a>
+                </li>
+                <li><a href="#">Miscellaneous</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Sponsors</h3>
+            </header>
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <br />
+        </section>
+
+        <section>
+            <header>
+                <h3>Connect With Us</h3>
+            </header>
+            <ul>
+                <li><a href="#">Twitter</a>
+                </li>
+                <li><a href="www.facebook.com">Facebook</a>
+                </li>
+                <li><a href="#">Google Buzz</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Recent Articles</h3>
+            </header>
+            <ul>
+                <li><a href="http://seattletimes.com/html/restaurants/2020997878_hummus17xml.html "target= "_blank">Seattle Times</a>
+                </li>
+                <li><a href="http://www.opentable.com/hummus-cafe">Open Table</a>
+                </li>
+            </ul>
+        </section>
+
+    </aside>
+
+  <footer>
+        <section>
+            <h3>Left Column</h3>
+            <p>Left aligned text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Center Column</h3>
+            <p>Center Text here. Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Right Column</h3>
+            <p>&copy; 2014 <a href="#" title="your site name">HummusCafee.com</a> All rights reserved.</p>
+            <p>Center Text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+        </section>
+
+    </footer>
+</body>
+
+</html>

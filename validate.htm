@@ -1,0 +1,330 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CoffeeCols</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- start thr form validate function -->
+    <script type="text/javascript">
+        function formValidation() {
+            var uid = document.registration.userid;
+            var passid = document.registration.passid;
+            var uname = document.registration.username;
+            var uadd = document.registration.address;
+            var ucountry = document.registration.country;
+            var uzip = document.registration.zip;
+            var uemail = document.registration.email;
+            var umsex = document.registration.msex;
+            var ufsex = document.registration.fsex;
+            if (userid_validation(uid, 5, 12)) {
+                if (passid_validation(passid, 7, 12)) {
+                    if (allLetter(uname)) {
+                        if (alphanumeric(uadd)) {
+                            if (countryselect(ucountry)) {
+                                if (allnumeric(uzip)) {
+                                    if (ValidateEmail(uemail)) {
+                                        if (validsex(umsex, ufsex)) { }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+
+        }
+
+        function userid_validation(uid, mx, my) {
+            var uid_len = uid.value.length;
+            if (uid_len == 0 || uid_len >= my || uid_len < mx) {
+                alert("User Id should not be empty / length be between " + mx + " to " + my);
+                uid.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function passid_validation(passid, mx, my) {
+            var passid_len = passid.value.length;
+            if (passid_len == 0 || passid_len >= my || passid_len < mx) {
+                alert("Password should not be empty / length be between " + mx + " to " + my);
+                passid.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function allLetter(uname) {
+            var letters = /^[A-Za-z]+$/;
+            if (uname.value.match(letters)) {
+                return true;
+            } else {
+                alert('Username must have alphabet characters only');
+                uname.focus();
+                return false;
+            }
+        }
+
+        function alphanumeric(uadd) {
+            var letters = /^[0-9a-zA-Z]+$/;
+            if (uadd.value.match(letters)) {
+                return true;
+            } else {
+                alert('User address must have alphanumeric characters only');
+                uadd.focus();
+                return false;
+            }
+        }
+
+        function countryselect(ucountry) {
+            if (ucountry.value == "Default") {
+                alert('Select your country from the list');
+                ucountry.focus();
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function allnumeric(uzip) {
+            var numbers = /^[0-9]+$/;
+            if (uzip.value.match(numbers)) {
+                return true;
+            } else {
+                alert('ZIP code must have numeric characters only');
+                uzip.focus();
+                return false;
+            }
+        }
+
+        function ValidateEmail(uemail) {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (uemail.value.match(mailformat)) {
+                return true;
+            } else {
+                alert("You have entered an invalid email address!");
+                uemail.focus();
+                return false;
+            }
+        }
+
+        function validsex(umsex, ufsex) {
+            x = 0;
+
+            if (umsex.checked) {
+                x++;
+            }
+            if (ufsex.checked) {
+                x++;
+            }
+            if (x == 0) {
+                alert('Select Male/Female');
+                umsex.focus();
+                return false;
+            } else {
+                alert('Thank you for regestration with Hummus Coffee a confirm email will be send to you shortley');
+                window.location.reload()
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>HUMMUS CAFE</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="selected"><a href="index.htm">Home</a>
+
+        </ul>
+    </nav>
+    <section id="intro">
+        <header>
+            <h2>Register With Us </h2>
+        </header>
+        <p>We will not use or hand your information to a third party plus you are going to recieve free meal</p>
+        <img src="images/mailGyro.jpg" alt="lime" />
+    </section>
+
+    <div id="innercontent">
+        <article class="articlecontent">
+            <header>
+                <h2>Registration Form</h2>
+            </header>
+
+            <body onload="document.registration.userid.focus();">
+                <p>Use tab keys to move from one input field to the next!!.</p>
+                <form name='registration' onSubmit="return formValidation();">
+                    <ul>
+                        <li>
+                            <label for="userid">User id:</label>
+                        </li>
+                        <li>
+                            <input type="text" name="userid" size="12" />
+                        </li>
+                        <li>
+                            <label for="passid">Password:</label>
+                        </li>
+                        <li>
+                            <input type="password" name="passid" size="12" />
+                        </li>
+                        <li>
+                            <label for="username">Name:</label>
+                        </li>
+                        <li>
+                            <input type="text" name="username" size="50" />
+                        </li>
+                        <li>
+                            <label for="address">Address:</label>
+                        </li>
+                        <li>
+                            <input type="text" name="address" size="50" />
+                        </li>
+                        <li>
+                            <label for="country">Country:</label>
+                        </li>
+                        <li>
+                            <select name="country">
+                                <option selected="" value="Default">(Please select a country)</option>
+                                <option value="AF">Australia</option>
+                                <option value="AL">Canada</option>
+                                <option value="DZ">India</option>
+                                <option value="AS">Russia</option>
+                                <option value="AD">USA</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="zip">ZIP Code:</label>
+                        </li>
+                        <li>
+                            <input type="text" name="zip" />
+                        </li>
+                        <li>
+                            <label for="email">Email:</label>
+                        </li>
+                        <li>
+                            <input type="text" name="email" size="50" />
+                        </li>
+                        <li>
+                            <label id="gender">Sex: This is an Optional Question</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="sex" value="Male" /><span>Male</span>
+                        </li>
+                        <li>
+                            <input type="radio" name="sex" value="Female" /><span>Female</span>
+                        </li>
+                        <li>
+                            <label>Language: This is an Optional Question</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="en" value="en" checked /><span>English</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="nonen" value="noen" /><span>Non English</span>
+                        </li>
+                        <li>
+                            <label for="desc">About:</label>
+                        </li>
+                        <li>
+                            <textarea name="desc" id="desc"></textarea>
+                        </li>
+                        <li>
+                            <input type="submit" name="submit" value="Submit" />
+                        </li>
+                    </ul>
+                </form>
+        </article>
+
+    </div>
+
+    <aside>
+        <section>
+            <header>
+                <h3>Categories</h3>
+            </header>
+            <ul>
+                <li><a href="#">Plain</a>
+                </li>
+                <li><a href="#">Fancy</a>
+                </li>
+                <li><a href="#">Coffee Makers</a>
+                </li>
+                <li><a href="#">Sides</a>
+                </li>
+                <li><a href="#">Miscellaneous</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Sponsors</h3>
+            </header>
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <img src="images/ad125.jpg" alt="ad" />
+            <img src="images/ad125.jpg" alt="ad" />
+            <br />
+            <br />
+        </section>
+
+        <section>
+            <header>
+                <h3>Connect With Us</h3>
+            </header>
+            <ul>
+                <li><a href="#">Twitter</a>
+                </li>
+                <li><a href="#">Facebook</a>
+                </li>
+                <li><a href="#">Google Buzz</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h3>Recent Articles</h3>
+            </header>
+            <ul>
+                <li><a href="http://seattletimes.com/html/restaurants/2020997878_hummus17xml.html "target= "_blank">Seattle Times</a>
+                </li>
+                <li><a href="http://www.opentable.com/hummus-cafe">Open Table</a>
+                </li>
+                </li>
+            </ul>
+        </section>
+
+    </aside>
+
+   <footer>
+        <section>
+            <h3>Left Column</h3>
+            <p>Left aligned text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Center Column</h3>
+            <p>Center Text here. Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Right Column</h3>
+            <p>&copy; 2014 <a href="#" title="your site name">HummusCafee.com</a> All rights reserved.</p>
+            <p>Center Text here.Since then our priority has always been to provide our customers with high quality, fresh and healthy food, served in a fast and friendly manner – offered at a competitive price point.</p>
+        </section>
+
+    </footer>
+   
+    </body>
+
+</html>
